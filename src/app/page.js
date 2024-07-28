@@ -1,8 +1,9 @@
-'use client'
+'use client';
 
-import { useEffect, useState } from "react";
-import styles from "./page.module.css";
-import { getTrandingMovies } from "./fetch/fetchAPI";
+import { useEffect, useState } from 'react';
+import css from './page.module.css';
+import { getTrandingMovies } from './fetch/fetchAPI';
+import FilmCard from './compoments/film_card/FilmCard';
 
 export default function Home() {
   const [movies, setMovies] = useState(null);
@@ -14,19 +15,23 @@ export default function Home() {
         const film = await getTrandingMovies();
         setMovies(film.results);
       } catch (error) {
-        setError(error.message)
+        setError(error.message);
       }
-    }
+    };
     getMovies();
   }, []);
 
-  console.log(movies);
-
   return (
-    <main className={styles.main}>
-      <div>
-
-      </div>
+    <main className={css.main}>
+      <ul className={css.list_style}>
+        {movies && movies.map(movie => {
+          return (
+            <li key={movie.id}>
+              <FilmCard movie = {movie} />
+            </li>
+          )
+        })}
+      </ul>
     </main>
   );
 }
