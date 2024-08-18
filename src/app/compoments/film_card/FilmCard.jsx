@@ -8,10 +8,12 @@ export default function FilmCard({ movie }) {
 
   function openModal() {
     setModalIsOpen(true);
+    document.body.style.overflowY = 'hidden';
   }
 
   function closeModal() {
     setModalIsOpen(false);
+    document.body.style.overflowY = 'unset';
   }
 
   const { backdrop_path, title } = movie;
