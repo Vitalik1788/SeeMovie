@@ -1,23 +1,39 @@
-import css from './FilmCard.module.css'
+import { useState } from 'react';
+import DetailModal from '../detail_modal/Modal';
+import css from './FilmCard.module.css';
+
 
 export default function FilmCard({ movie }) {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  function openModal() {
+    setModalIsOpen(true);
+  }
+
+  function closeModal() {
+    setModalIsOpen(false);
+  }
+
   const { backdrop_path, title } = movie;
 
-  console.log(movie);
-
   return (
-    <div className={css.box}>
-      <img
-        className={css.poster}
-        src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
-        alt={title}
-      />
-      <h2 className={css.film_title}>{title}</h2>
-      <div className={css.button_box}>
-        <button className={css.styled_button}>Деталі</button>
-        <button className={css.styled_button}>Трейлер</button>
+    <>
+      <div className={css.box}>
+        <img
+          className={css.poster}
+          src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
+          alt={title}
+        />
+        <h2 className={css.film_title}>{title}</h2>
+        <div className={css.button_box}>
+          <button onClick={openModal} className={css.styled_button}>
+            Деталі
+          </button>
+          <button className={css.styled_button}>Трейлер</button>
+        </div>
       </div>
-    </div>
+      <DetailModal movie={movie} modalIsOpen={modalIsOpen} closeModal={closeModal} />
+    </>
   );
 
 

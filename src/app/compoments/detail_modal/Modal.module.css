@@ -1,0 +1,52 @@
+.modal_css_style{
+  position: fixed;
+  top:50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  width: 700px;
+  height: auto;
+  border-radius: 25px;
+  background-color: white;
+}
+
+.close_cross {
+  position: absolute;
+  left: 94%;
+  top: 2%;
+  cursor: pointer;
+}
+
+.poster {
+  width: 90%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+}
+
+.title {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.rating {
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.reliase {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.overwiev {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 500;
+}
